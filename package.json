@@ -2,13 +2,16 @@
   "name": "node-ts-jest-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf dist/ && tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.test.ts' --exec 'ts-node --files --compilerHost --transpilerOnly src/index.ts'",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^29.5.13",
     "@types/node": "^22.7.4",
